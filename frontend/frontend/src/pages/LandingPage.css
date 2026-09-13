@@ -1,0 +1,63 @@
+.landing-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #14151c;
+    color: white;
+}
+
+.landing-content {
+    width: 600px;
+    text-align: center;
+}
+
+.landing-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.landing-content p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #b8c0cc;
+    margin-bottom: 35px;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: auto;
+
+    padding: 13px 25px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: white;
+    color: #333;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.google-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+}
+
+.google-btn span {
+    font-size: 20px;
+    font-weight: bold;
+}

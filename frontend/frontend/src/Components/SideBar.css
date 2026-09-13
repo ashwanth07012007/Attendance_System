@@ -1,0 +1,108 @@
+.menu-btn {
+    position: fixed;
+    top: 18px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 1100;
+    color: inherit;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 999;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: #1d1f27;
+    color: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open { transform: translateX(0); }
+
+.sidebar-header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid #333;
+    flex-shrink: 0;
+}
+
+.sidebar-header h2 { margin: 0; font-size: 18px; }
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 12px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.sidebar-menu > a {
+    color: #d1d5db;
+    text-decoration: none;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    font-size: 15px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-menu > a:hover {
+    background-color: #2a2d38;
+    color: white;
+}
+
+.students-section {
+    margin: 8px 0;
+}
+
+.students-section p {
+    margin: 8px 14px 4px;
+    color: #9ca3af;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.students-section a {
+    display: block;
+    color: #d1d5db;
+    text-decoration: none;
+    padding: 10px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.students-section a:hover {
+    background-color: #2a2d38;
+    color: white;
+}

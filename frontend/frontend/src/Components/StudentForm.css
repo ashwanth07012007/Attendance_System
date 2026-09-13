@@ -1,0 +1,143 @@
+.sf-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.sf-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.sf-header h2 { margin: 0; font-size: 22px; color: #2d3748; }
+
+.sf-back-btn {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.sf-back-btn:hover { background: #f0f0f0; }
+
+.sf-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.sf-loading, .sf-empty {
+    color: #a0aec0;
+    text-align: center;
+    padding: 30px;
+    font-size: 15px;
+}
+
+/* Select student dropdown */
+.sf-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.sf-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.required { color: #e53e3e; }
+
+.sf-field input,
+.sf-field select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #2d3748;
+    background: #f7fafc;
+    box-sizing: border-box;
+    margin: 0;
+    transition: border-color 0.15s;
+}
+
+.sf-field input:focus,
+.sf-field select:focus {
+    outline: none;
+    border-color: #667eea;
+    background: #fff;
+}
+
+/* 2-column grid for form fields */
+.sf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .sf-grid { grid-template-columns: 1fr; }
+}
+
+/* Buttons */
+.sf-btn {
+    padding: 9px 22px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.sf-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.sf-btn-update { background: #667eea; color: #fff; }
+.sf-btn-update:hover:not(:disabled) { opacity: 0.88; }
+
+.sf-btn-delete { background: #fc8181; color: #fff; padding: 6px 14px; font-size: 13px; }
+.sf-btn-delete:hover:not(:disabled) { background: #e53e3e; opacity: 1; }
+
+/* Table */
+.sf-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sf-table th {
+    background: #f7fafc;
+    padding: 11px 14px;
+    text-align: left;
+    font-size: 12px;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.sf-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f0f4f8;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.sf-table tr:last-child td { border-bottom: none; }
+.sf-table tr:hover td { background: #f7fafc; }
+
+.sf-table code {
+    background: #edf2f7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}
