@@ -4,7 +4,7 @@ import "./LandingPage.css";
 const LandingPage = () => {
 
     const handleGoogleLogin = () => {
-        window.location.href = "http://localhost:8080/oauth2/authorization/google";
+        window.location.href = "https://attendance-system-sfz5.onrender.com/oauth2/authorization/google";
     };
 
     return (
