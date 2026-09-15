@@ -67,13 +67,13 @@ const Dashboard = () => {
     };
 
     const handleLogout = async () => {
-        try {
-            await axios.post("http://localhost:8080/logout", {}, { withCredentials: true });
-            navigate("/", { replace: true });
-        } catch (e) {
-            console.error("Logout failed:", e);
-        }
-    };
+            try {
+                await api.post("/logout");
+                navigate("/", { replace: true });
+            } catch (e) {
+                console.error("Logout failed:", e);
+            }
+      };
 
     const handleCardClick = (type) => {
         if (!isAdmin) return;
