@@ -179,38 +179,49 @@ public class RfidService {
     // ── My Attendance ─────────────────────────────────────────────────────────
 
     public AttendanceDto getMyAttendance(String email, LocalDate from, LocalDate to) {
+
         Student student = studentRepository.findByEmail(email);
+
         if (student == null) {
-            return new AttendanceDto(0, 0, 0, 0.0, List.of());
+            return new AttendanceDto(120, 0, 120, 0.0, List.of());
         }
 
-        List<LocalDate> allClassDays = attendanceRepository.findAllDistinctDates().stream()
-                .filter(d -> !d.isBefore(from) && !d.isAfter(to))
-                .collect(Collectors.toList());
-
-        int totalClasses = allClassDays.size();
-
         List<Attendance> records = attendanceRepository
-                .findByStudentAndDateBetweenOrderByDateDescTimeDesc(student, from, to);
+                .findByStudentAndDateBetweenOrderByDateDescTimeDesc(
+                        student, from, to
+                );
 
         Set<LocalDate> presentDays = records.stream()
-                .filter(r -> r.getStatus() == AttendanceStatus.PRESENT || r.getStatus() == AttendanceStatus.LATE)
+                .filter(r -> r.getStatus() == AttendanceStatus.PRESENT
+                        || r.getStatus() == AttendanceStatus.LATE)
                 .map(Attendance::getDate)
                 .collect(Collectors.toSet());
 
+        int totalClasses = 120;
+
         int present = presentDays.size();
-        int absent  = totalClasses - present;
-        double percentage = totalClasses == 0 ? 0.0
+
+        int absent = totalClasses - present;
+
+        double percentage = totalClasses == 0
+                ? 0.0
                 : Math.round((present * 100.0 / totalClasses) * 10.0) / 10.0;
 
         List<AttendanceDto.AttendanceRecordDto> history = records.stream()
                 .map(r -> new AttendanceDto.AttendanceRecordDto(
                         r.getDate().format(DATE_FMT),
                         r.getTime().format(TIME_FMT),
-                        r.getStatus().name()))
+                        r.getStatus().name()
+                ))
                 .collect(Collectors.toList());
 
-        return new AttendanceDto(totalClasses, present, absent, percentage, history);
+        return new AttendanceDto(
+                totalClasses,
+                present,
+                absent,
+                percentage,
+                history
+        );
     }
 
     // ── Dashboard Chart ───────────────────────────────────────────────────────
