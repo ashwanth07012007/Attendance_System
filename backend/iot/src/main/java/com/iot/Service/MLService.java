@@ -3,6 +3,7 @@ package com.iot.Service;
 import com.iot.dto.MLPredictionRequest;
 import com.iot.dto.MLPredictionResponse;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -12,20 +13,16 @@ public class MLService {
 
     private final RestClient restClient;
 
-
-    public MLService() {
+    public MLService(@Value("${ml.api.url}") String mlApiUrl) {
 
         this.restClient = RestClient.builder()
-                .baseUrl("http://127.0.0.1:8000")
+                .baseUrl(mlApiUrl)
                 .build();
     }
 
+    public MLPredictionResponse predict(MLPredictionRequest request) {
 
-    public MLPredictionResponse predict(
-            MLPredictionRequest request) {
-
-        return restClient
-                .post()
+        return restClient.post()
                 .uri("/predict")
                 .body(request)
                 .retrieve()

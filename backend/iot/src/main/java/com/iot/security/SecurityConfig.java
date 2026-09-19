@@ -36,7 +36,8 @@ public class SecurityConfig {
                     "/api/rfid/lastScanTimestamp",
                     "/api/rfid/chart",
                     "/api/rfid/export/csv",
-                    "/api/attendance/my"
+                    "/api/attendance/my",
+                        "/api/ml/**"
                 ).authenticated()
                 .requestMatchers(
                     "/api/rfid/registerRfid",
