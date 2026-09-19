@@ -10,6 +10,7 @@ import DeleteStudent from './Components/DeleteStudent'
 import Reports from './Components/Reports'
 import Presented from './Components/Presented'
 import MyAttendance from './pages/MyAttendance'
+import MLPrediction from './pages/MLPrediction'
 
 function App() {
   return (
@@ -25,6 +26,11 @@ function App() {
         <Route path="/presented" element={<Presented />} />
         <Route path="/dashboard/:type" element={<StudentStatistics />} />
         <Route path="/my-attendance" element={<MyAttendance />} />
+
+        <Route
+            path="/ml-prediction"
+            element={<MLPrediction />}
+        />
       </Routes>
     </BrowserRouter>
   )
